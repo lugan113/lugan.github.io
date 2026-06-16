@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <meta name="description" content="Lu Gan & Xi Li — Building AutoLabel Pro, a real-time HITL annotation tool (CVPR 2026). Nature Portfolio published. Open-source AI tools, seeking commercial investment.">
-  <meta property="og:title" content="Lu Gan & Xi Li | AutoLabel Pro · AI Research & Engineering">
-  <meta property="og:description" content="An AI research & engineering duo building data-centric tools. AutoLabel Pro (CVPR 2026 Demo) · Nature Portfolio · Hugging Face. Seeking investment for commercial AI products.">
+  <meta name="description" content="Lu Gan & Sam Li — Building KeenForge, an AI agent that distills a senior vision engineer's workflow so anyone can train their own expert-grade vision model. CVPR 2026. Nature Portfolio. Seeking seed investment.">
+  <meta property="og:title" content="Lu Gan & Sam Li | KeenForge — Train Your Own AI Model">
+  <meta property="og:description" content="We distill a 7-year vision AI workflow into an agent. No code. No cloud. You own the model. CVPR 2026 · Nature Portfolio · Seed round.">
   <meta property="og:type" content="profile">
-  <title>Lu Gan & Xi Li | AutoLabel Pro · AI Research</title>
+  <title>Lu Gan & Sam Li | KeenForge</title>
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,51 +16,35 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <style>
-    /* ============================================
-       CLEAN ACADEMIC DESIGN
-       ============================================ */
     :root {
-      --bg: #ffffff;
-      --text-primary: #111111;
-      --text-secondary: #555555;
-      --text-tertiary: #888888;
-      --accent: #1a56db;
-      --accent-hover: #1e40af;
-      --border: #e5e5e5;
-      --border-light: #eeeeee;
+      --bg: #000000;
+      --text-primary: #f1f1f1;
+      --text-secondary: #aaaaaa;
+      --text-tertiary: #777777;
+      --accent: #3b82f6;
+      --accent-hover: #60a5fa;
+      --accent2: #10b981;
+      --border: #2a2a2a;
+      --border-light: #1a1a1a;
 
       --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      --text-xs: 0.8125rem;
+      --text-sm: 0.9375rem;
+      --text-base: 1.0625rem;
+      --text-lg: 1.1875rem;
+      --text-xl: 1.375rem;
+      --text-2xl: 1.75rem;
+      --text-3xl: 2.25rem;
 
-      --text-xs: 0.75rem;
-      --text-sm: 0.8125rem;
-      --text-base: 0.9375rem;
-      --text-lg: 1.0625rem;
-      --text-xl: 1.25rem;
-      --text-2xl: 1.5rem;
-      --text-3xl: 2rem;
-
-      --space-1: 4px;
-      --space-2: 8px;
-      --space-3: 12px;
-      --space-4: 16px;
-      --space-5: 20px;
-      --space-6: 24px;
-      --space-8: 32px;
-      --space-10: 40px;
-      --space-12: 48px;
-      --space-16: 64px;
-      --space-20: 80px;
-
+      --space-1: 4px; --space-2: 8px; --space-3: 12px; --space-4: 16px;
+      --space-5: 20px; --space-6: 24px; --space-8: 32px; --space-10: 40px;
+      --space-12: 48px; --space-16: 64px; --space-20: 80px;
       --max-width: 720px;
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    html {
-      -webkit-text-size-adjust: 100%;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
+    html { -webkit-text-size-adjust: 100%; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
 
     body {
       font-family: var(--font);
@@ -74,64 +58,31 @@
     a:hover { text-decoration: underline; }
     img { display: block; max-width: 100%; }
 
-    /* Layout */
-    .container {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: var(--space-10) var(--space-5);
-    }
-
-    .divider {
-      border: none;
-      border-top: 1px solid var(--border);
-      margin: var(--space-10) 0;
-    }
+    .container { max-width: var(--max-width); margin: 0 auto; padding: var(--space-10) var(--space-5); }
+    .divider { border: none; border-top: 1px solid var(--border); margin: var(--space-10) 0; }
 
     /* Header */
-    .header {
-      text-align: center;
-      padding: var(--space-8) 0 var(--space-4);
-    }
-
-    .avatars-row {
-      display: flex;
-      justify-content: center;
-      gap: calc(-1 * var(--space-2));
-      margin-bottom: var(--space-5);
-    }
-
-    .avatars-row .avatar {
-      margin: 0;
-      border: 2px solid var(--bg);
-      box-shadow: 0 0 0 2px var(--border-light);
-    }
-
-    .avatars-row .avatar + .avatar {
-      margin-left: -12px;
-    }
-
-    .avatar {
-      width: 96px;
-      height: 96px;
-      border-radius: 50%;
-      margin: 0 auto var(--space-5);
-      overflow: hidden;
-      border: 2px solid var(--border-light);
-    }
-
-    .avatar img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
+    .header { text-align: center; padding: var(--space-8) 0 var(--space-4); }
 
     .name {
       font-size: var(--text-3xl);
       font-weight: 700;
       letter-spacing: -0.02em;
       color: var(--text-primary);
-      margin-bottom: var(--space-1);
-      word-break: keep-all;
+      margin-bottom: var(--space-2);
+    }
+
+    /* One-liner */
+    .oneliner {
+      font-size: var(--text-xl);
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: var(--space-3);
+      letter-spacing: -0.01em;
+    }
+
+    .oneliner .hl {
+      color: var(--accent);
     }
 
     .tagline {
@@ -139,17 +90,16 @@
       font-weight: 400;
       color: var(--text-secondary);
       margin-bottom: var(--space-5);
+      max-width: 540px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .social-links {
       display: flex;
       justify-content: center;
       gap: var(--space-4);
-    }
-
-    .social-top {
-      padding-top: var(--space-6);
-      padding-bottom: var(--space-6);
+      margin-top: var(--space-4);
     }
 
     .social-link {
@@ -165,11 +115,7 @@
       transition: border-color 0.2s, color 0.2s;
     }
 
-    .social-link:hover {
-      text-decoration: none;
-      border-color: var(--accent);
-      color: var(--accent);
-    }
+    .social-link:hover { text-decoration: none; border-color: var(--accent); color: var(--accent); }
 
     /* About */
     .about-text {
@@ -181,10 +127,8 @@
       margin: 0 auto;
     }
 
-    .about-text strong {
-      color: var(--text-primary);
-      font-weight: 600;
-    }
+    .about-text strong { color: var(--text-primary); font-weight: 600; }
+    .about-text .em { color: var(--accent2); font-style: normal; font-weight: 600; }
 
     /* Section heading */
     .section-heading {
@@ -205,6 +149,14 @@
       padding: var(--space-5);
     }
 
+    .card-accent {
+      border-left: 3px solid var(--accent);
+    }
+
+    .card-green {
+      border-left: 3px solid var(--accent2);
+    }
+
     /* Badges */
     .badge {
       display: inline-flex;
@@ -220,14 +172,17 @@
     }
 
     .badge-blue {
-      background: rgba(26, 86, 219, 0.08);
+      background: rgba(59, 130, 246, 0.12);
       color: var(--accent);
-      border: 1px solid rgba(26, 86, 219, 0.2);
+      border: 1px solid rgba(59, 130, 246, 0.25);
     }
 
-    .badge-blue:hover {
-      background: rgba(26, 86, 219, 0.14);
-      text-decoration: none;
+    .badge-blue:hover { background: rgba(59, 130, 246, 0.20); text-decoration: none; }
+
+    .badge-green {
+      background: rgba(16, 185, 129, 0.12);
+      color: var(--accent2);
+      border: 1px solid rgba(16, 185, 129, 0.25);
     }
 
     .badge-orange {
@@ -236,7 +191,7 @@
       border: 1px solid rgba(217, 119, 6, 0.2);
     }
 
-    /* The Duo */
+    /* Duo */
     .duo-grid {
       display: grid;
       grid-template-columns: 1fr;
@@ -257,38 +212,15 @@
       overflow: hidden;
     }
 
-    .duo-avatar img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
+    .duo-avatar img { width: 100%; height: 100%; object-fit: cover; }
 
-    .duo-info h3 {
-      font-size: var(--text-base);
-      font-weight: 600;
-      color: var(--text-primary);
-      margin-bottom: var(--space-1);
-    }
+    .duo-info h3 { font-size: var(--text-base); font-weight: 600; color: var(--text-primary); margin-bottom: var(--space-1); }
 
-    .duo-role {
-      font-size: var(--text-sm);
-      color: var(--accent);
-      font-weight: 500;
-      margin-bottom: var(--space-2);
-    }
+    .duo-role { font-size: var(--text-sm); color: var(--accent); font-weight: 500; margin-bottom: var(--space-2); }
 
-    .duo-desc {
-      font-size: var(--text-sm);
-      color: var(--text-tertiary);
-      line-height: 1.6;
-    }
+    .duo-desc { font-size: var(--text-sm); color: var(--text-tertiary); line-height: 1.6; }
 
-    .duo-links {
-      margin-top: var(--space-3);
-      display: flex;
-      flex-wrap: wrap;
-      gap: var(--space-3);
-    }
+    .duo-links { margin-top: var(--space-3); display: flex; flex-wrap: wrap; gap: var(--space-3); }
 
     .duo-link {
       display: inline-flex;
@@ -303,19 +235,12 @@
       transition: border-color 0.2s, color 0.2s;
     }
 
-    .duo-link:hover {
-      text-decoration: none;
-      border-color: var(--accent);
-      color: var(--accent);
-    }
-
+    .duo-link:hover { text-decoration: none; border-color: var(--accent); color: var(--accent); }
     .duo-link.email:hover { color: #ea4335; border-color: rgba(234, 67, 53, 0.4); }
     .duo-link.linkedin:hover { color: #0a66c2; border-color: rgba(10, 102, 194, 0.4); }
 
-    /* Project cards */
-    .project-card {
-      margin-bottom: var(--space-4);
-    }
+    /* Project */
+    .project-card { margin-bottom: var(--space-4); }
 
     .project-header {
       display: flex;
@@ -340,20 +265,133 @@
       margin-bottom: var(--space-4);
     }
 
-    .project-tagline strong {
-      color: var(--text-primary);
-      font-weight: 600;
+    .project-tagline strong { color: var(--text-primary); font-weight: 600; }
+    .project-tagline .em { color: var(--accent2); font-style: normal; font-weight: 600; }
+
+    /* Stat row */
+    .stat-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: var(--space-3);
+      margin-bottom: var(--space-4);
     }
 
-    .seeking-note {
-      font-size: var(--text-sm);
-      font-weight: 500;
-      color: #b45309;
-      margin-bottom: var(--space-4);
+    .stat-item {
+      text-align: center;
+      padding: var(--space-3);
+      border: 1px solid var(--border-light);
+      border-radius: 6px;
+    }
+
+    .stat-val {
+      font-size: var(--text-lg);
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    .stat-lbl {
+      font-size: var(--text-xs);
+      color: var(--text-tertiary);
+      margin-top: var(--space-1);
+    }
+
+    /* Pipeline */
+    .pipeline {
       display: flex;
       align-items: center;
-      gap: var(--space-2);
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin: var(--space-4) 0;
+      font-size: var(--text-xs);
     }
+
+    .pipeline .step {
+      border: 1px solid var(--border);
+      padding: 8px 10px;
+      border-radius: 6px;
+      text-align: center;
+      color: var(--text-secondary);
+      background: var(--bg);
+    }
+
+    .pipeline .step.auto {
+      border-color: rgba(16, 185, 129, 0.3);
+      background: rgba(16, 185, 129, 0.06);
+      color: var(--accent2);
+    }
+
+    .pipeline .arrow { color: var(--accent); font-weight: 700; }
+
+    .pipeline-legend {
+      text-align: center;
+      font-size: var(--text-xs);
+      color: var(--text-tertiary);
+      margin-bottom: var(--space-4);
+    }
+
+    /* Comparison */
+    .comp-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-3);
+      margin-bottom: var(--space-4);
+    }
+
+    .comp-box {
+      padding: var(--space-4);
+      border-radius: 6px;
+      border: 1px solid var(--border);
+    }
+
+    .comp-box.old { opacity: 0.65; }
+    .comp-box.new {
+      border: 2px solid var(--accent2);
+      background: rgba(16, 185, 129, 0.05);
+    }
+
+    .comp-box .comp-label {
+      font-size: var(--text-xs);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text-tertiary);
+      margin-bottom: var(--space-2);
+    }
+
+    .comp-box.new .comp-label { color: var(--accent2); font-weight: 600; }
+
+    .comp-box .comp-body {
+      font-size: var(--text-sm);
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    .comp-box.new .comp-body { color: var(--text-primary); }
+
+    /* Publication */
+    .pub-journal {
+      font-size: var(--text-xs);
+      font-weight: 600;
+      color: var(--accent);
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      margin-bottom: var(--space-2);
+    }
+
+    .pub-title {
+      font-size: var(--text-base);
+      font-weight: 500;
+      font-style: italic;
+      color: var(--text-primary);
+      line-height: 1.6;
+      margin-bottom: var(--space-3);
+    }
+
+    .pub-title a { color: inherit; text-decoration: none; transition: color 0.15s; }
+    .pub-title a:hover { color: var(--accent); }
+
+    .pub-role { font-size: var(--text-sm); color: var(--text-tertiary); }
+    .pub-role strong { color: var(--text-primary); font-weight: 600; }
 
     /* Buttons */
     .btn {
@@ -374,175 +412,31 @@
     }
 
     .btn:hover { text-decoration: none; }
-
-    .btn-primary {
-      background: var(--accent);
-      color: #fff;
-    }
-
+    .btn-primary { background: var(--accent); color: #fff; }
     .btn-primary:hover { background: var(--accent-hover); }
-
-    .btn-cta {
-      background: var(--accent);
-      color: #fff;
-      font-size: var(--text-base);
-      padding: 10px 28px;
-    }
-
+    .btn-cta { background: var(--accent); color: #fff; font-size: var(--text-base); padding: 10px 28px; }
     .btn-cta:hover { background: var(--accent-hover); }
-
-    .btn-orange {
-      background: transparent;
-      color: #b45309;
-      border: 1px solid rgba(217, 119, 6, 0.3);
-    }
-
-    .btn-orange:hover {
-      background: rgba(217, 119, 6, 0.08);
-      border-color: rgba(217, 119, 6, 0.5);
-    }
-
-    /* Gallery */
-    .gallery-intro {
-      font-size: var(--text-sm);
-      color: var(--text-secondary);
-      line-height: 1.65;
-      margin-bottom: var(--space-5);
-    }
-
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: var(--space-3);
-    }
-
-    .gallery-item {
-      position: relative;
-      border-radius: 6px;
-      overflow: hidden;
-      aspect-ratio: 4 / 3;
-      background: var(--bg);
-      border: 1px solid var(--border-light);
-      text-decoration: none;
-      display: block;
-      transition: border-color 0.2s;
-    }
-
-    .gallery-item:hover { border-color: var(--accent); }
-
-    .gallery-item img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: opacity 0.2s;
-    }
-
-    .gallery-item:hover img { opacity: 0.85; }
-
-    .gallery-caption {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      padding: var(--space-2) var(--space-3);
-      font-size: var(--text-xs);
-      color: #fff;
-      font-weight: 500;
-      background: linear-gradient(transparent, rgba(0,0,0,0.5));
-      pointer-events: none;
-    }
-
-    /* Publication */
-    .pub-card {
-      border-left: 3px solid var(--accent);
-    }
-
-    .pub-journal {
-      font-size: var(--text-xs);
-      font-weight: 600;
-      color: var(--accent);
-      letter-spacing: 0.03em;
-      text-transform: uppercase;
-      margin-bottom: var(--space-2);
-    }
-
-    .pub-title {
-      font-size: var(--text-base);
-      font-weight: 500;
-      font-style: italic;
-      color: var(--text-primary);
-      line-height: 1.6;
-      margin-bottom: var(--space-3);
-    }
-
-    .pub-title a {
-      color: inherit;
-      text-decoration: none;
-      transition: color 0.15s;
-    }
-
-    .pub-title a:hover { color: var(--accent); }
-
-    .pub-role {
-      font-size: var(--text-sm);
-      color: var(--text-tertiary);
-    }
-
-    .pub-role strong {
-      color: var(--text-primary);
-      font-weight: 600;
-    }
+    .btn-outline { background: transparent; color: var(--accent); border: 1px solid rgba(59, 130, 246, 0.35); }
+    .btn-outline:hover { background: rgba(59, 130, 246, 0.1); border-color: rgba(59, 130, 246, 0.6); }
 
     /* CTA Footer */
-    .cta-section {
-      text-align: center;
-      padding: var(--space-8) 0 var(--space-4);
-    }
-
-    .cta-heading {
-      font-size: var(--text-2xl);
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      color: var(--text-primary);
-      margin-bottom: var(--space-4);
-    }
-
-    .cta-sub {
-      font-size: var(--text-base);
-      color: var(--text-secondary);
-      line-height: 1.65;
-      margin-bottom: var(--space-5);
-      max-width: 500px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .cta-sub strong {
-      color: var(--text-primary);
-      font-weight: 600;
-    }
-
-    .copyright {
-      font-size: var(--text-xs);
-      color: var(--text-tertiary);
-      margin-top: var(--space-10);
-    }
+    .cta-section { text-align: center; padding: var(--space-8) 0 var(--space-4); }
+    .cta-heading { font-size: var(--text-2xl); font-weight: 700; letter-spacing: -0.02em; color: var(--text-primary); margin-bottom: var(--space-4); }
+    .cta-sub { font-size: var(--text-base); color: var(--text-secondary); line-height: 1.65; margin-bottom: var(--space-5); max-width: 500px; margin-left: auto; margin-right: auto; }
+    .cta-sub strong { color: var(--text-primary); font-weight: 600; }
+    .copyright { font-size: var(--text-xs); color: var(--text-tertiary); margin-top: var(--space-10); }
 
     /* Responsive */
     @media (min-width: 640px) {
       .container { padding: var(--space-16) var(--space-8); }
-      .avatar { width: 112px; height: 112px; }
       .name { font-size: 2.5rem; }
+      .oneliner { font-size: 1.5rem; }
       .duo-grid { grid-template-columns: 1fr 1fr; }
       .cta-heading { font-size: 1.75rem; }
     }
 
-    @media (min-width: 480px) {
-      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
-    }
-
-    @media (min-width: 640px) {
-      .gallery-grid { grid-template-columns: repeat(3, 1fr); }
+    @media (max-width: 480px) {
+      .comp-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -550,22 +444,55 @@
 
   <div class="container">
 
-    <!-- ====== ABOUT (Opener) ====== -->
-    <section aria-label="About">
-      <p class="about-text">
-        We are a <strong>dataset-driven AI research &amp; engineering duo</strong>. We build datasets, annotation tools, and scalable data pipelines — the infrastructure that powers downstream AI. From hematological cell data (<strong>Nature Portfolio</strong>) to multilingual on-device speech commands (<strong>Hugging Face</strong>) to <strong>AutoLabel Pro</strong> (CVPR 2026), our work spans modalities — united by an obsession with data quality and annotation fidelity. Now we're bringing that rigor to commercial product, starting with AutoLabel Pro.
+    <!-- ====== HEADER ====== -->
+    <section aria-label="Header" style="text-align:center">
+      <div class="oneliner">
+        Distill <span class="hl">Sam's judgment</span>.<br>Forge <span class="hl">your own</span> AI model.
+      </div>
+      <p class="tagline">
+        KeenForge is an AI agent that distills our CTO's 7-year vision AI workflow — so anyone with trained eyes can train their own expert-grade model. No code. No cloud. You own it — and you earn from it.
       </p>
+
+      <div style="display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:var(--space-4);">
+        <span class="badge badge-green">CVPR 2026 Demo</span>
+        <span class="badge badge-blue">Nature Portfolio</span>
+        <span class="badge badge-blue">MIT Open Source</span>
+        <span class="badge badge-green">100% Local</span>
+      </div>
+
+      <div style="text-align:center;margin-top:var(--space-4);">
+        <a href="mailto:lucygan113@gmail.com?subject=KeenForge" class="btn btn-cta">
+          <i class="fas fa-paper-plane"></i> Get in Touch
+        </a>
+      </div>
+
     </section>
 
-    <!-- ====== SOCIAL LINKS ====== -->
-    <div class="social-links" style="margin-top: var(--space-4); margin-bottom: var(--space-2);">
-      <a href="https://github.com/lugan113" class="social-link github" aria-label="GitHub" target="_blank" rel="noopener">
-        <i class="fab fa-github"></i>
-      </a>
-      <a href="https://huggingface.co/datasets/lugan" class="social-link huggingface" aria-label="Hugging Face" target="_blank" rel="noopener">
-        <i class="fas fa-face-smile"></i>
-      </a>
-    </div>
+    <hr class="divider">
+
+    <!-- ====== THE PROBLEM + OUR ANSWER ====== -->
+    <section aria-label="What We Do">
+      <h2 class="section-heading">What We Do</h2>
+
+      <div class="card card-green">
+        <p class="project-tagline" style="margin-bottom:0;">
+          <strong>GPT-4V scores 22% on industrial defect detection. The factory needs 98%+.</strong> Generic models hit a structural ceiling in specialized domains. The people who could train expert models — QC engineers, radiologists, agronomists — are locked out by the code barrier. KeenForge replaces the entire ML pipeline with one AI agent. <strong class="em">Expert labels and reviews. AI handles everything else — from data cleaning to deployment.</strong>
+        </p>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- ====== WHY SPECIALIZATION ====== -->
+    <section aria-label="Why Specialization">
+      <h2 class="section-heading">The Theory Behind KeenForge</h2>
+
+      <div class="card card-accent">
+        <p class="project-tagline" style="margin-bottom:0;">
+          <a href="https://arxiv.org/pdf/2602.23643" target="_blank" rel="noopener" style="color:var(--text-secondary);"><strong style="color:var(--accent);">SAI: AI Must Embrace Specialization via Superhuman Adaptable Intelligence</strong> — Goldfeder, Wyder, LeCun &amp; Shwartz-Ziv (2025)</a> — argues the future of AI is not one general model, but thousands of specialized superhuman systems. <strong class="em">This is the thesis KeenForge is built on.</strong>
+        </p>
+      </div>
+    </section>
 
     <hr class="divider">
 
@@ -573,24 +500,26 @@
     <section aria-label="The Duo">
       <h2 class="section-heading">The Duo</h2>
       <div class="duo-grid">
+        <!-- Lu Gan -->
         <div class="card duo-card">
           <div class="duo-avatar lu"><img src="background/cropped-lugan_photo%20(1).jpg" alt="Lu Gan"></div>
           <div class="duo-info">
             <h3>Lu Gan</h3>
-            <div class="duo-role">Independent AI Researcher</div>
-            <p class="duo-desc">Nature Portfolio first author. Self-taught from clinical physiotherapy — now building data-centric AI and annotation tools for real-world impact.</p>
+            <div class="duo-role">CEO · Domain Expert Turned AI Builder</div>
+            <p class="duo-desc">Nature Portfolio first author. Self-taught from clinical physiotherapy — lived the problem: "I had the domain expertise but couldn't train a model." Now building the tool that eliminates that barrier for everyone.</p>
             <div class="duo-links">
               <a href="mailto:lucygan113@gmail.com" class="duo-link email" aria-label="Email"><i class="fas fa-envelope"></i></a>
               <a href="https://www.linkedin.com/in/lu-gan-91786217a/" target="_blank" rel="noopener" class="duo-link linkedin" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
             </div>
           </div>
         </div>
+        <!-- Sam Li -->
         <div class="card duo-card">
-          <div class="duo-avatar xi"><img src="background/cropped-lixi_photo.jpg" alt="Xi Li"></div>
+          <div class="duo-avatar xi"><img src="background/cropped-lixi_photo.jpg" alt="Sam Li"></div>
           <div class="duo-info">
-            <h3>Xi Li</h3>
-            <div class="duo-role">Senior AI Architect</div>
-            <p class="duo-desc">Expert in building industrial computer vision and generative AI systems, integrating multi-modal models (YOLO, SAM3, Qwen-VL) into production pipelines.</p>
+            <h3>Sam Li</h3>
+            <div class="duo-role">CTO · 7-Year Vision AI Engineer</div>
+            <p class="duo-desc">Full-stack vision pipeline: data cleaning → model selection → hyperparameter tuning → ONNX deployment. The AI agent we're building is a distillation of his entire workflow.</p>
             <div class="duo-links">
               <a href="mailto:reilixi723@gmail.com" class="duo-link email" aria-label="Email"><i class="fas fa-envelope"></i></a>
               <a href="https://www.linkedin.com/in/sam-li-50a96617a/" target="_blank" rel="noopener" class="duo-link linkedin" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
@@ -602,116 +531,83 @@
 
     <hr class="divider">
 
-    <!-- ====== PROJECTS ====== -->
-    <section aria-label="Projects">
-      <h2 class="section-heading">Projects</h2>
+    <!-- ====== PRODUCT ====== -->
+    <section aria-label="Product">
+      <h2 class="section-heading">KeenForge</h2>
 
-      <!-- AutoLabel Pro -->
-      <div class="card project-card">
-        <div class="project-header">
-          <h3 class="project-title">AutoLabel Pro</h3>
-          <div style="display:flex;flex-wrap:wrap;gap:8px;">
-            <a href="https://www.youtube.com/watch?v=shU62O8_40E" class="badge badge-blue" target="_blank" rel="noopener"><i class="fas fa-circle" style="font-size:5px"></i> CVPR 2026 Demo</a>
-            <a href="https://github.com/lugan113/AutoLabel-Pro" class="badge badge-blue" target="_blank" rel="noopener"><i class="fab fa-github"></i> Open Source</a>
+      <div class="card" style="margin-bottom:var(--space-5);">
+        <p class="project-tagline">
+          <strong>Not a labeling tool. An AI vision engineer agent.</strong> Desktop app. Expert opens it → imports images → draws boxes → AI trains in the background, in real time. The full pipeline runs locally. Your data never leaves your machine.
+        </p>
+
+        <!-- Pipeline -->
+        <div class="pipeline">
+          <div class="step">Import</div><span class="arrow">→</span>
+          <div class="step auto">Auto-Clean</div><span class="arrow">→</span>
+          <div class="step">Expert Labels<br><span style="font-size:0.65rem">30-50 imgs</span></div><span class="arrow">→</span>
+          <div class="step auto">Real-Time<br>Training</div>
+        </div>
+        <div class="pipeline" style="margin-top:-6px">
+          <span class="arrow">→</span>
+          <div class="step auto">Edge Cases<br><span style="font-size:0.65rem">VLM</span></div><span class="arrow">→</span>
+          <div class="step auto">Synthetic<br>Data</div><span class="arrow">→</span>
+          <div class="step auto">Auto-Tune<br><span style="font-size:0.65rem">LLM</span></div><span class="arrow">→</span>
+          <div class="step auto">Deploy</div>
+        </div>
+        <p class="pipeline-legend">Green = AI automated &nbsp;|&nbsp; White = expert involved</p>
+
+        <!-- Stats -->
+        <div class="stat-row">
+          <div class="stat-item">
+            <div class="stat-val">&lt;1s</div>
+            <div class="stat-lbl">Label → Train Trigger</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-val">17</div>
+            <div class="stat-lbl">Model Architectures</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-val">100%</div>
+            <div class="stat-lbl">Local · Data Never Leaves</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-val">MIT</div>
+            <div class="stat-lbl">Enterprise License</div>
           </div>
         </div>
-        <p class="project-tagline">An open-source, intelligent annotation tool built on a <strong>Human-in-the-Loop feedback loop</strong>: zero-shot cold start via <strong>YOLO-World</strong> natural language prompts → real-time <strong>background model training</strong> as you correct annotations → progressively faster, smarter labeling. 100% local, privacy-first, with YOLO / VOC / COCO format support. We are now building the <strong>advanced commercial version</strong> with novel training strategies for industrial-scale object detection &amp; segmentation — <strong>seeking investment</strong>.</p>
+
+        <!-- Comparison -->
+        <div class="comp-grid">
+          <div class="comp-box old">
+            <div class="comp-label">Existing Tools</div>
+            <div class="comp-body">Label batch → manually train → wait → load.<br><strong>Hours to days per loop.</strong></div>
+          </div>
+          <div class="comp-box new">
+            <div class="comp-label">KeenForge</div>
+            <div class="comp-body">Labeling → <strong>background auto-training</strong> → sub-second model update.<br><strong>Producer-Consumer threading.</strong></div>
+          </div>
+        </div>
+
+        <!-- Demo + GitHub -->
+        <p class="project-tagline" style="margin-bottom:var(--space-3);">
+          This is our <strong>early-stage prototype</strong> — the foundational HITL real-time training framework demonstrated at CVPR 2026. We are now integrating more AI capabilities into the pipeline: VLM edge-case discovery, synthetic data generation, and LLM-driven auto-tuning.
+        </p>
         <div style="display:flex;flex-wrap:wrap;gap:12px;">
-          <a href="https://www.youtube.com/watch?v=shU62O8_40E" class="btn btn-primary" target="_blank" rel="noopener"><i class="fas fa-play"></i> Watch Demo</a>
-          <a href="mailto:lucygan113@gmail.com?subject=AutoLabel%20Pro%20Investment" class="btn btn-orange"><i class="fas fa-handshake"></i> Invest</a>
+          <a href="https://www.youtube.com/watch?v=shU62O8_40E" class="btn btn-primary" target="_blank" rel="noopener"><i class="fas fa-play"></i> CVPR 2026 Demo</a>
+          <a href="https://github.com/KeenForgeAI/AutoLabel-Pro" class="btn btn-outline" target="_blank" rel="noopener"><i class="fab fa-github"></i> GitHub</a>
         </div>
-      </div>
 
-      <!-- SyntTS-Commands -->
-      <div class="card project-card">
-        <div class="project-header">
-          <h3 class="project-title">SyntTS-Commands</h3>
-          <a href="https://huggingface.co/datasets/lugan/Syntts-Commands-Media-Dataset" class="badge badge-blue" target="_blank" rel="noopener"><i class="fab fa-hubspot"></i> Hugging Face</a>
-        </div>
-        <p class="project-tagline">A <strong>large-scale, multilingual synthetic speech command dataset</strong> for low-power Keyword Spotting (KWS) and speech command recognition. Generated via advanced TTS to address data scarcity in <strong>TinyML and Edge AI</strong>.</p>
-        <a href="https://huggingface.co/datasets/lugan/Syntts-Commands-Media-Dataset" class="btn btn-primary" target="_blank" rel="noopener"><i class="fas fa-database"></i> View Dataset</a>
-      </div>
-
-      <!-- Macro3DGS (temporarily hidden)
-      <div class="card project-card">
-        <div class="project-header">
-          <h3 class="project-title">Macro3DGS</h3>
-          <span class="badge badge-orange"><i class="fas fa-circle" style="font-size:5px"></i> Coming Q4 2026</span>
-        </div>
-        <p class="project-tagline"><strong>Defining the standard for micro-scale digital twins.</strong> Solving physics-constrained challenges — shallow DoF, complex materials — in 3D Gaussian Splatting through automated focus-stacking pipelines.</p>
-        <p class="seeking-note"><i class="fas fa-handshake"></i> Seeking Research Collaboration & Lab Sponsorship</p>
-        <a href="mailto:lucygan113@gmail.com?subject=Macro3DGS%20Collaboration" class="btn btn-orange"><i class="fas fa-flask"></i> Seek Collaboration</a>
-      </div>
-      -->
-    </section>
-
-    <!-- ====== MICRO-SCALE GALLERY (temporarily hidden) ======
-    <hr class="divider">
-
-    <section aria-label="Micro-Scale Gallery">
-      <h2 class="section-heading">The Micro-Scale Frontier</h2>
-      <p class="gallery-intro">Macro3DGS targets subjects with intricate geometry and complex materials — the kind of detail traditional 3D reconstruction cannot capture. Below are macro-scale specimens that represent the level of micro-fidelity we aim to digitize in 3D.</p>
-      <div class="gallery-grid">
-        <a href="micro-pics/1.jpg" class="gallery-item" target="_blank" aria-label="Macro specimen 1">
-          <img src="thumbs/1.webp" alt="Macro specimen" loading="lazy">
-          <span class="gallery-caption">Specimen 01</span>
-        </a>
-        <a href="micro-pics/2.jpg" class="gallery-item" target="_blank" aria-label="Macro specimen 2">
-          <img src="thumbs/2.webp" alt="Macro specimen" loading="lazy">
-          <span class="gallery-caption">Specimen 02</span>
-        </a>
-        <a href="micro-pics/3.jpg" class="gallery-item" target="_blank" aria-label="Macro specimen 3">
-          <img src="thumbs/3.webp" alt="Macro specimen" loading="lazy">
-          <span class="gallery-caption">Specimen 03</span>
-        </a>
-        <a href="micro-pics/4.jpg" class="gallery-item" target="_blank" aria-label="Macro specimen 4">
-          <img src="thumbs/4.webp" alt="Macro specimen" loading="lazy">
-          <span class="gallery-caption">Specimen 04</span>
-        </a>
-        <a href="micro-pics/5.jpg" class="gallery-item" target="_blank" aria-label="Macro specimen 5">
-          <img src="thumbs/5.webp" alt="Macro specimen" loading="lazy">
-          <span class="gallery-caption">Specimen 05</span>
-        </a>
-        <a href="micro-pics/6.jpg" class="gallery-item" target="_blank" aria-label="Macro specimen 6">
-          <img src="thumbs/6.webp" alt="Macro specimen" loading="lazy">
-          <span class="gallery-caption">Specimen 06</span>
-        </a>
-        <a href="micro-pics/7.jpg" class="gallery-item" target="_blank" aria-label="Macro specimen 7">
-          <img src="thumbs/7.webp" alt="Macro specimen" loading="lazy">
-          <span class="gallery-caption">Specimen 07</span>
-        </a>
-        <a href="micro-pics/8.jpg" class="gallery-item" target="_blank" aria-label="Macro specimen 8">
-          <img src="thumbs/8.webp" alt="Macro specimen" loading="lazy">
-          <span class="gallery-caption">Specimen 08</span>
-        </a>
-        <a href="micro-pics/9.jpg" class="gallery-item" target="_blank" aria-label="Macro specimen 9">
-          <img src="thumbs/9.webp" alt="Macro specimen" loading="lazy">
-          <span class="gallery-caption">Specimen 09</span>
-        </a>
-        <a href="micro-pics/10.jpg" class="gallery-item" target="_blank" aria-label="Macro specimen 10">
-          <img src="thumbs/10.webp" alt="Macro specimen" loading="lazy">
-          <span class="gallery-caption">Specimen 10</span>
-        </a>
-        <a href="micro-pics/11.jpg" class="gallery-item" target="_blank" aria-label="Macro specimen 11">
-          <img src="thumbs/11.webp" alt="Macro specimen" loading="lazy">
-          <span class="gallery-caption">Specimen 11</span>
-        </a>
-        <a href="micro-pics/12.jpg" class="gallery-item" target="_blank" aria-label="Macro specimen 12">
-          <img src="thumbs/12.webp" alt="Macro specimen" loading="lazy">
-          <span class="gallery-caption">Specimen 12</span>
-        </a>
       </div>
     </section>
 
     <hr class="divider">
-    -->
 
     <!-- ====== PUBLICATION ====== -->
     <section aria-label="Publication">
       <h2 class="section-heading">Publication</h2>
-      <div class="card pub-card">
-        <div class="pub-journal">Nature Portfolio · Scientific Data · 2025</div>
-        <p class="pub-title"><a href="https://www.nature.com/articles/s41597-025-05980-z#Abs1" target="_blank" rel="noopener">"A Curated and Re-annotated Peripheral Blood Cell Dataset for Advancing Hematological AI Research"</a></p>
+      <div class="card card-accent">
+        <div class="pub-journal">Nature · Scientific Data · 2025</div>
+        <p class="pub-title"><a href="https://www.nature.com/articles/s41597-025-05980-z#Abs1" target="_blank" rel="noopener">"A Curated and Re-annotated Peripheral Blood Cell Dataset Integrating Four Public Resources"</a></p>
         <p class="pub-role"><strong>First Author</strong> — Curated the dataset, led annotation strategy, and drove the research from clinical insight to publication.</p>
       </div>
     </section>
@@ -720,20 +616,25 @@
 
     <!-- ====== CTA FOOTER ====== -->
     <footer class="cta-section">
-      <h2 class="cta-heading">Seeking Investment</h2>
-      <p class="cta-sub"><strong>AutoLabel Pro</strong> is open-source today. We are now building the <strong>advanced commercial version</strong> with novel training methods for <strong>object detection &amp; segmentation</strong> — delivering <strong>faster, higher-quality results</strong> in real industrial applications.</p>
-      <a href="mailto:lucygan113@gmail.com?subject=AutoLabel%20Pro%20Investment" class="btn btn-cta">
+      <h2 class="cta-heading">Building the Model Creator Economy</h2>
+      <p class="cta-sub">
+        KeenForge is more than a tool — it's a <strong>Visual AI Model Store</strong>. A platform that turns every creator's expertise into lasting value. Train a model that reaches 98%+ accuracy, and it can be deployed anywhere in the world — improving real productivity on real production lines, in real hospitals, on real farms. Every time it's used, <strong>you earn royalties</strong>. We're not here to sell software. We're here to maximize the value of human expertise.
+      </p>
+      <p class="cta-sub" style="margin-top:-8px;">
+        <strong>Seed round $750K–$1.2M.</strong> We've done the hard part — the HITL real-time training engine is built and validated. Now we're accelerating toward product-market fit.
+      </p>
+      <a href="mailto:lucygan113@gmail.com?subject=KeenForge%20Seed" class="btn btn-cta">
         <i class="fas fa-paper-plane"></i> Get in Touch
       </a>
       <div class="social-links" style="margin-top: var(--space-6);">
-        <a href="https://github.com/lugan113" class="social-link github" aria-label="GitHub" target="_blank" rel="noopener">
+        <a href="https://github.com/lugan113" class="social-link" aria-label="GitHub" target="_blank" rel="noopener">
           <i class="fab fa-github"></i>
         </a>
-        <a href="https://huggingface.co/datasets/lugan" class="social-link huggingface" aria-label="Hugging Face" target="_blank" rel="noopener">
+        <a href="https://huggingface.co/datasets/lugan" class="social-link" aria-label="Hugging Face" target="_blank" rel="noopener">
           <i class="fas fa-face-smile"></i>
         </a>
       </div>
-      <p class="copyright">&copy; 2026 Lu Gan &amp; Xi Li. Dataset-driven AI research.</p>
+      <p class="copyright">&copy; 2026 Lu Gan &amp; Sam Li. KeenForge.</p>
     </footer>
 
   </div>
